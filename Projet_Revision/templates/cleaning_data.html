@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nettoyage de données</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+        <body>
+            <ul>
+                <li><a href="/">  Accueil  </a></li>
+                <li><a href="/Nettoyage/"> Nettoyage de donnée   </a></li>
+                <li><a href="/Arbres_de_decision/"> Arbres de décision   </a></li>
+            </ul>
+
+
+            <h1>{{message}}</h1>
+
+
+            <p>
+                Cette étape est nécessaire suite à des anomalies d'exports / d'imports ou tout simplement car le stockage automatisé / manuel à générer des erreurs et des formats non récurrent.<br>
+                On va uniformiser les données <br>
+            </p><br>
+            <p> Librairie                           <br><br>
+                import pandas as pd                 <br>
+                import matplotlib.pyplot as plt     <br>
+                import seaborn as sns               <br>
+                import numpy as np                  <br>
+            </p>
+
+            <p> Etapes :                            <br>
+                    Nettoyage et visualisation des données : <br>
+                    <span class = "marge" > sns.heatmap(DF.corr(), annot=True)   </span> <br>
+                    <span class = "marge" > Commentaire : il s'agit de l'analyse des relations entres les colones. </span><br><br>
+                    <img src= "{{url_for('static', filename='images/clearing-data/sns-heatmap.png')}}"  alt="heatmap" snsheight="600px" width="600px" ><br><br>
+                   
+                    <span class = "marge" >sns.pairplot(DF, hue='Outcome') </span><br>
+                    <span class = "marge" >Commentaire : visualisation de continués, pour savoir la dispersion avec la cible. </span><br><br>
+                    <img src= "{{url_for('static', filename='images/clearing-data/sns-pairplot.png')}}"  alt="pairplot" snsheight="600px" width="600px" ><br><br>
+
+
+                    <span class = "marge" >sns.heatmap(DF == 0, cbar=False) </span><br><br>
+                    <img src= "{{url_for('static', filename='images/clearing-data/heatmap-missing-value.png')}}"  alt="missing-value" snsheight="600px" width="600px" ><br>
+            </p><br><br>
+
+        </body>
+            
+            <footer> Professeur - Arsene Lapin</footer>
+</html>

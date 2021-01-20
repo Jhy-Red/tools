@@ -1,0 +1,49 @@
+
+body {
+    background-color: #f3f3f38c;
+}
+
+h1 {
+    width: 70%;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  li a:hover {
+    background-color: #111;
+  }
+
+  footer {
+    text-align:center;
+    position:relative;
+    bottom:0;
+    width:99%;
+    height:25px;   /* Height of the footer */
+    background:rgba(172, 172, 172, 0.966);
+ }
+
+ .marge {
+  margin-left: 2em;
+  }

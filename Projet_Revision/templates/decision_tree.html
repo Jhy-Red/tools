@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arbre de decision</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+        <body>
+            <ul>
+                <li><a href="/">  Accueil  </a></li>
+                <li><a href="/Nettoyage/"> Nettoyage de donnée   </a></li>
+                <li><a href="/Arbres_de_decision/"> Arbre de décision  </a></li>
+            </ul>
+
+
+            <h1>{{message}}</h1>
+
+
+            <p>
+                Il s'agit d'une méthode de classification, celle-ci se repose sur un principe binaire.      <br><br>
+
+                Raisonement : Une question fermé, une réponse en conséquent binaire ( vrai ou faux).        <br><br>
+    
+                Cheminement : un cheminement de question, la segmentation progressive va amener à une profondeur de l'analyse, le terme anglais est "depth".      <br><br>
+
+            </p>
+
+            <p>
+                Comme à chaque sets de données ... on commence par le nettoyage <br>
+                Prochaine étape désigner la valeur à prédire : <br> 
+                from sklearn.model_selection import train_test_split <br>
+                X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0) <br>
+
+            </p><br><br>
+
+            <p> 
+                Realisation d'une prédiction :                                  <br>
+                from sklearn.tree import DecisionTreeClassifier                 <br>
+                clf = DecisionTreeClassifier()                                  <br>
+                clf = clf.fit(X_train,y_train)                                  <br>
+                y_pred = clf.predict(X_test)                                    <br>
+                                                                                <br>
+                Estimation de la pertinence :                                   <br>
+                from sklearn import metrics                                     <br>
+                print("Accuracy:",metrics.accuracy_score(y_test, y_pred))       <br>
+                                                                                <br>
+                Resultat :                                                      <br>
+                from sklearn.ensemble import RandomForestRegressor              <br>
+                rf = RandomForestRegressor()                                    <br>
+                rf.fit(X_train, y_train)                                        <br>
+                                                                                <br>
+                                                                                <br>        
+                OPTIMIATION :                                                   <br>
+                Regression LASSO  : Le nom est un acronyme anglais : Least Absolute Shrinkage and Selection Operator; <br>
+                Le lasso n'est pas uniquement restreint à la régression linéaire, 
+                il peut être également utilisé avec les modèles linéaires généralisés permettant ainsi de faire de la régression logistique pénalisée. <br>
+                                                                                <br>
+                from sklearn.linear_model import Lasso                          <br>
+                                                                                <br>
+                lr_lasso = Lasso(max_iter=10000)                                <br>
+                lr_lasso.fit(X_train_2, y_train)                                <br>
+            </p>    
+        </body>
+            
+            <footer> Professeur - Arsene Lapin</footer>
+</html>
